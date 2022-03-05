@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: status-ms
+  labels:
+    app: status-ms
+spec:
+  replicas: 1
+  template:
+    metadata:
+      name: status-ms
+      labels:
+        app: status-ms
+    spec:
+      containers:
+        - name: status-ms
+          image: adpham1302/status-ms:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 9090
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: k8s
+      restartPolicy: Always
+  selector:
+    matchLabels:
+      app: status-ms
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: status-ms
+spec:
+  selector:
+    app: status-ms
+  ports:
+    - port: 80
+      targetPort: 9090
+  type: NodePort

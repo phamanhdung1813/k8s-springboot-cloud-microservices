@@ -1,0 +1,17 @@
+server:
+  port: 8761
+
+spring:
+  application:
+    name: eureka-naming-server
+  zipkin:
+    base-url: http://zipkin:9411
+
+eureka:
+  client:
+    fetch-registry: false
+    register-with-eureka: false
+    service-url:
+      defaultZone: ${EUREKA_NAMING_SERVER_ADDRESS}
+  instance:
+    hostname: "${HOSTNAME}.eureka"

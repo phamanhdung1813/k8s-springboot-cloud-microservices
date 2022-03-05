@@ -1,0 +1,7 @@
+C:\Users\PHAM ANH DUNG\Desktop\k8s-springboot-cloud-microservices\message-rabbitmq\src\main\java\com\stanleypham\message_rabbitmq\config\MessageMQConsumer.java
+C:\Users\PHAM ANH DUNG\Desktop\k8s-springboot-cloud-microservices\message-rabbitmq\src\main\java\com\stanleypham\message_rabbitmq\config\MessageMQConfig.java
+C:\Users\PHAM ANH DUNG\Desktop\k8s-springboot-cloud-microservices\message-rabbitmq\src\main\java\com\stanleypham\message_rabbitmq\entities\MessageQueue.java
+C:\Users\PHAM ANH DUNG\Desktop\k8s-springboot-cloud-microservices\message-rabbitmq\src\main\java\com\stanleypham\message_rabbitmq\services\MessageQueueService.java
+C:\Users\PHAM ANH DUNG\Desktop\k8s-springboot-cloud-microservices\message-rabbitmq\src\main\java\com\stanleypham\message_rabbitmq\MessageApplication.java
+C:\Users\PHAM ANH DUNG\Desktop\k8s-springboot-cloud-microservices\message-rabbitmq\src\main\java\com\stanleypham\message_rabbitmq\repositories\MessageQueueRepository.java
+C:\Users\PHAM ANH DUNG\Desktop\k8s-springboot-cloud-microservices\message-rabbitmq\src\main\java\com\stanleypham\message_rabbitmq\controllers\MessageQueueController.java

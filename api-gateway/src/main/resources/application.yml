@@ -1,0 +1,32 @@
+server:
+  port: 8989
+
+spring:
+  application:
+    name: api-gateway
+  zipkin:
+    base-url: http://localhost:9411
+  cloud:
+    gateway:
+      routes:
+        - id: student-ms
+          uri: lb://student-ms
+          predicates:
+            - Path=/student/**
+        
+        - id: status-ms
+          uri: lb://status-ms
+          predicates:
+            - Path=/status/**
+        
+        - id: message-rabbitmq
+          uri: lb://message-rabbitmq
+          predicates:
+            - Path=/message-rabbitmq/**
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    enabled: true
+    service-url:
+      defaultZone: http://localhost:8761/eureka/

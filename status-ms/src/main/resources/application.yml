@@ -1,0 +1,31 @@
+server:
+  port: 9090
+
+spring:
+  application:
+    name: status-ms
+  zipkin:
+    base-url: http://localhost:9411
+  
+  datasource:
+    username: root
+    password: Anhdung1302
+    url: jdbc:mysql://localhost:3306/spcloud?createDatabaseIfNotExist=true&autoReconnect=true&useSSL=false
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+        format_sql: true
+    show-sql: true
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+    enabled: true
+    fetch-registry: true
+    register-with-eureka: true

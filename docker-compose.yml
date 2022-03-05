@@ -1,0 +1,116 @@
+version: "3.8"
+services:
+  mysql:
+    container_name: mysql
+    image: mysql:5.7
+    environment:
+      MYSQL_USER: stanleypham
+      MYSQL_PASSWORD: Anhdung1302
+      MYSQL_ROOT_PASSWORD: Anhdung1302
+      MYSQL_DATABASE: spcloud
+    volumes:
+      - mysql:/data/mysql
+    ports:
+      - "3306:3306"
+    networks:
+      - spring-network
+    restart: unless-stopped
+  
+  zipkin:
+    image: openzipkin/zipkin
+    container_name: zipkin
+    ports:
+      - "9411:9411"
+    networks:
+      - service-network
+  rabbitmq:
+    image: rabbitmq:3.9.11-management-alpine
+    container_name: rabbitmq
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    networks:
+      - service-network
+
+  student-ms:
+    image: adpham1302/student-ms:latest
+    container_name: student-ms
+    ports:
+      - "8080:8080"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    networks:
+      - spring-network
+      - service-network
+    depends_on:
+      - zipkin
+      - mysql
+      - rabbitmq
+      - eureka-naming-server
+
+  status-ms:
+    image: adpham1302/status-ms:latest
+    container_name: status-ms
+    ports:
+      - "9090:9090"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    networks:
+      - spring-network
+      - service-network
+    depends_on:
+      - zipkin
+      - mysql
+      - rabbitmq
+      - eureka-naming-server
+
+  message-rabbitmq:
+    image: adpham1302/message-rabbitmq:latest
+    container_name: message-rabbitmq
+    ports:
+      - "8085:8085"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    networks:
+      - spring-network
+      - service-network
+    depends_on:
+      - zipkin
+      - mysql
+      - rabbitmq
+      - eureka-naming-server
+
+  api-gateway:
+    image: adpham1302/api-gateway:latest
+    container_name: api-gateway
+    ports:
+      - "8989:8989"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    networks:
+      - service-network
+    depends_on:
+      - zipkin
+      - eureka-naming-server
+
+  eureka-naming-server:
+    image: adpham1302/eureka-naming-server:latest
+    container_name: eureka-naming-server
+    ports:
+      - "8761:8761"
+    environment:
+      - SPRING_PROFILES_ACTIVE=docker
+    networks:
+      - service-network
+    depends_on:
+      - zipkin
+      - rabbitmq
+
+networks:
+  spring-network:
+    driver: bridge #student and status
+  service-network:
+    driver: bridge #zipkin rabbitmq sleuth
+
+volumes:
+  mysql:

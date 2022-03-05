@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: student-ms
+  labels:
+    app: student-ms
+spec:
+  replicas: 1
+  template:
+    metadata:
+      name: student-ms
+      labels:
+        app: student-ms
+    spec:
+      containers:
+        - name: student-ms
+          image: adpham1302/student-ms:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8080
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: k8s
+      restartPolicy: Always
+  selector:
+    matchLabels:
+      app: student-ms
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: student-ms
+spec:
+  selector:
+    app: student-ms
+  ports:
+    - port: 80
+      targetPort: 8080
+  type: LoadBalancer

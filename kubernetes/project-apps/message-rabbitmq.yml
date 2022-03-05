@@ -1,0 +1,39 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: message-rabbitmq
+  labels:
+    app: message-rabbitmq
+spec:
+  replicas: 1
+  template:
+    metadata:
+      name: message-rabbitmq
+      labels:
+        app: message-rabbitmq
+    spec:
+      containers:
+        - name: message-rabbitmq
+          image: adpham1302/message-rabbitmq:latest
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 8085
+          env:
+            - name: SPRING_PROFILES_ACTIVE
+              value: k8s
+      restartPolicy: Always
+  selector:
+    matchLabels:
+      app: message-rabbitmq
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: message-rabbitmq
+spec:
+  selector:
+    app: message-rabbitmq
+  ports:
+    - port: 80
+      targetPort: 8085
+  type: NodePort

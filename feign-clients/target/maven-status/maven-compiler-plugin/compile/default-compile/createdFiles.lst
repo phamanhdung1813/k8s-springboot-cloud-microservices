@@ -1,0 +1,9 @@
+com\stanleypham\feign_clients\status\StatusClients.class
+com\stanleypham\feign_clients\queue\QueueFeignMessage.class
+com\stanleypham\feign_clients\student\StudentClients.class
+com\stanleypham\feign_clients\queue\QueueFeignMessage$QueueFeignMessageBuilder.class
+com\stanleypham\feign_clients\student\StudentFeignResponse$StudentFeignResponseBuilder.class
+com\stanleypham\feign_clients\queue\QueueClients.class
+com\stanleypham\feign_clients\status\StatusFeignResponse$StatusFeignResponseBuilder.class
+com\stanleypham\feign_clients\status\StatusFeignResponse.class
+com\stanleypham\feign_clients\student\StudentFeignResponse.class

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="feign-clients" />
+        <module name="message-queue" />
+        <module name="eureka-naming-server" />
+        <module name="message-rabbitmq" />
+        <module name="api-gateway" />
+        <module name="status-ms" />
+        <module name="student-ms" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="eureka-server" target="17" />
+      <module name="feign-client-api" target="17" />
+      <module name="hello" target="11" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

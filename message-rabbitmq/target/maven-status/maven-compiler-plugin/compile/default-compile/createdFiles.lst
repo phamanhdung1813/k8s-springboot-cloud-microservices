@@ -1,0 +1,8 @@
+com\stanleypham\message_rabbitmq\config\MessageMQConsumer.class
+com\stanleypham\message_rabbitmq\config\MessageMQConfig.class
+com\stanleypham\message_rabbitmq\entities\MessageQueue$MessageQueueBuilder.class
+com\stanleypham\message_rabbitmq\repositories\MessageQueueRepository.class
+com\stanleypham\message_rabbitmq\services\MessageQueueService.class
+com\stanleypham\message_rabbitmq\MessageApplication.class
+com\stanleypham\message_rabbitmq\controllers\MessageQueueController.class
+com\stanleypham\message_rabbitmq\entities\MessageQueue.class

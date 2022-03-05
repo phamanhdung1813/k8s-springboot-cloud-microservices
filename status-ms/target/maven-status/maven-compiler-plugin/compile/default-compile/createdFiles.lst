@@ -1,0 +1,6 @@
+com\stanleypham\status_ms\services\StatusService.class
+com\stanleypham\status_ms\repositories\StatusRepository.class
+com\stanleypham\status_ms\entities\StudentStatus$StudentStatusBuilder.class
+com\stanleypham\status_ms\controllers\StatusController.class
+com\stanleypham\status_ms\entities\StudentStatus.class
+com\stanleypham\status_ms\StatusApplication.class

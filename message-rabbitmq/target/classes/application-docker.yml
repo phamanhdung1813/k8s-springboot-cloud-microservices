@@ -1,0 +1,31 @@
+server:
+  port: 8085
+
+spring:
+  application:
+    name: message-rabbitmq
+  zipkin:
+    base-url: http://zipkin:9411
+  rabbitmq:
+    addresses: rabbitmq:5672
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+      format_sql: true
+    show-sql: true
+  
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://mysql:3306/spcloud?createDatabaseIfNotExist=true&autoReconnect=true&useSSL=false
+    username: root
+    password: Anhdung1302
+
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    enabled: true
+    service-url:
+      defaultZone: http://eureka-naming-server:8761/eureka
